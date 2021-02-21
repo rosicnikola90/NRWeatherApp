@@ -13,7 +13,7 @@
 #import "NRWeatherModelListManager.h"
 
 
-@interface PlaceViewController : UITableViewController <CLLocationManagerDelegate, NRWeatherModelDelegate>
+@interface NRPlaceViewController : UITableViewController <CLLocationManagerDelegate, NRWeatherModelDelegate, NRListOfPlacesDelegate>
 
 @property (strong, nonatomic) WeatherModel *weather;
 @property ( nonatomic) NSInteger indexVc;

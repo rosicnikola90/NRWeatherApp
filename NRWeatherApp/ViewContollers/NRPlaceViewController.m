@@ -6,9 +6,9 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
-#import "PlaceViewController.h"
+#import "NRPlaceViewController.h"
 
-@interface PlaceViewController ()
+@interface NRPlaceViewController ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager ;
 @property (strong, nonatomic) CLLocation *userLocation;
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation PlaceViewController
+@implementation NRPlaceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,7 +86,7 @@
     [self.countryLabel setText:self.weather.getCountryName];
     [self.tempMaxLabel setText:self.weather.getMAXTemperature];
     [self.tempMinLabel setText:self.weather.getMINTemperature];
-    [self.weatherImage setImage:[UIImage imageNamed:self.weather.getWeatherImageName ]];
+    [self.weatherImage setImage:[UIImage imageNamed:self.weather.getWeatherImageName]];
     [self.pressureLabel setText:self.weather.getPressure];
     [self.humidityLabel setText:self.weather.getHumidity];
     [self.windDirectionLabel setText:[self.weather getWindDirection]];
@@ -95,21 +95,22 @@
     [self.errorLabel setHidden:true];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString: @"showListOfPlaces"]) {
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString: @"showListOfPlaces"]) {
+//        ListOfPlacesViewController *listVC = segue.destinationViewController;
+//        ListOfPlacesViewController __weak *weakListVC = listVC;
+//        [listVC setDelegate:weakListVC];
+//    }
+//}
 
-- (IBAction)addAnotherPlace:(UIBarButtonItem *)sender {
-    
-}
+
 
 #pragma mark - delegate methods
 
 - (void)weatherDataHasBeenUpdatedForWeatherModel:(nonnull WeatherModel *)model {
     self.weather = model ;
     dispatch_async(dispatch_get_main_queue(), ^{
-            __weak PlaceViewController *weakSelf = self;
+            __weak NRPlaceViewController *weakSelf = self;
             [weakSelf updateUI];
     });
 }

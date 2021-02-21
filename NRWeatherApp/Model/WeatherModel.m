@@ -23,7 +23,6 @@
 @property (nonatomic, strong) NSNumber *weatherID;
 @property (nonatomic, strong) NSString *weatherDescription;
 
-
 @end
 
 @implementation WeatherModel

@@ -18,7 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self.window setBackgroundColor:UIColor.cyanColor];
+    
+    UIColor *myColor = [UIColor colorWithRed:51.0f/255.0f green:102.0f/255.0f blue:153.0f/233.0f alpha:1.0f];
+    [self.window setBackgroundColor:myColor];
     
    //NSArray *_newArray = [NRWeatherModelListManager listOfWeatherModels];
     
@@ -52,6 +54,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    
 }
 
 

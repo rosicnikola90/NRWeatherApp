@@ -24,7 +24,7 @@
     [self updateArrayOfWeatherModels];
     self.dataSource = self;
     self.delegate = self;
-    PlaceViewController *initialVC = [self addPlaceViewControllerAtIndex:0];
+    NRPlaceViewController *initialVC = [self addPlaceViewControllerAtIndex:0];
     [self setViewControllers:@[initialVC] direction:UIPageViewControllerNavigationDirectionForward animated:false completion:nil];
  
     pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - (self.navigationController.toolbar.frame.size.height + 10)) , self.view.frame.size.width, 10)];
@@ -35,8 +35,8 @@
     [self updatePageNo];
     [pageControl setUserInteractionEnabled:false];
 }
--(PlaceViewController *) addPlaceViewControllerAtIndex:(NSInteger)index {
-    PlaceViewController *placeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlaceViewController"];
+-(NRPlaceViewController *) addPlaceViewControllerAtIndex:(NSInteger)index {
+    NRPlaceViewController *placeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlaceViewController"];
     if (arrayOfWeatherModels.count == 0){
         WeatherModel *model = [[WeatherModel alloc] init];
         [arrayOfWeatherModels addObject:model];
@@ -48,7 +48,7 @@
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
-    NSInteger index = ((PlaceViewController*) viewController).indexVc;
+    NSInteger index = ((NRPlaceViewController*) viewController).indexVc;
     if (index == 0 || index == NSNotFound) {
         return nil;
     }
@@ -57,7 +57,7 @@
 }
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
     
-    NSInteger index = ((PlaceViewController*) viewController).indexVc;
+    NSInteger index = ((NRPlaceViewController*) viewController).indexVc;
     if (index == NSNotFound) {
         return nil;
     }
@@ -82,7 +82,7 @@
     [self updatePageNo];
     
     NSLog(@"PROTOKOL  viewControllers: %@", self.viewControllers);
-    PlaceViewController *placeVc = [self addPlaceViewControllerAtIndex:index];
+    NRPlaceViewController *placeVc = [self addPlaceViewControllerAtIndex:index];
     [self setViewControllers:@[placeVc] direction:UIPageViewControllerNavigationDirectionForward animated:false completion:nil];
     pageNo = index;
     pageControl.currentPage = pageNo;
@@ -105,7 +105,7 @@
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
     
-    PlaceViewController *placeVc = (PlaceViewController*)pendingViewControllers[0] ;
+    NRPlaceViewController *placeVc = (NRPlaceViewController*)pendingViewControllers[0] ;
     pageNo = placeVc.indexVc;
 }
 

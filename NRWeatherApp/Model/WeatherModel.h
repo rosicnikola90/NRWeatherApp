@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface WeatherModel : NSObject
+@interface WeatherModel : NSObject 
 
 @property (nonatomic, weak) id <NRWeatherModelDelegate> delegate;
 @property (nonatomic, weak) id <NRWeatherModelDelegateForList> delegateList;

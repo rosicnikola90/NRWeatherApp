@@ -15,7 +15,7 @@
 		FAE913E125896A5100570CE7 /* AddPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE913E025896A5100570CE7 /* AddPlaceCell.m */; };
 		FAE913E425896D2200570CE7 /* ListOfPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE913E325896D2200570CE7 /* ListOfPlacesViewController.m */; };
 		FAF6E845258418C400F16DBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6E844258418C400F16DBB /* AppDelegate.m */; };
-		FAF6E848258418C400F16DBB /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6E847258418C400F16DBB /* PlaceViewController.m */; };
+		FAF6E848258418C400F16DBB /* NRPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF6E847258418C400F16DBB /* NRPlaceViewController.m */; };
 		FAF6E84B258418C400F16DBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF6E849258418C400F16DBB /* Main.storyboard */; };
 		FAF6E84D258418C600F16DBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF6E84C258418C600F16DBB /* Assets.xcassets */; };
 		FAF6E850258418C600F16DBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF6E84E258418C600F16DBB /* LaunchScreen.storyboard */; };
@@ -40,8 +40,8 @@
 		FAF6E840258418C400F16DBB /* NRWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NRWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF6E843258418C400F16DBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAF6E844258418C400F16DBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FAF6E846258418C400F16DBB /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
-		FAF6E847258418C400F16DBB /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		FAF6E846258418C400F16DBB /* NRPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRPlaceViewController.h; sourceTree = "<group>"; };
+		FAF6E847258418C400F16DBB /* NRPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRPlaceViewController.m; sourceTree = "<group>"; };
 		FAF6E84A258418C400F16DBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAF6E84C258418C600F16DBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAF6E84F258418C600F16DBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,8 +63,8 @@
 		FA57E789258AAD2F00B98B20 /* ViewContollers */ = {
 			isa = PBXGroup;
 			children = (
-				FAF6E846258418C400F16DBB /* PlaceViewController.h */,
-				FAF6E847258418C400F16DBB /* PlaceViewController.m */,
+				FAF6E846258418C400F16DBB /* NRPlaceViewController.h */,
+				FAF6E847258418C400F16DBB /* NRPlaceViewController.m */,
 				FAE913E225896D2200570CE7 /* ListOfPlacesViewController.h */,
 				FAE913E325896D2200570CE7 /* ListOfPlacesViewController.m */,
 				FA4FD67B258E671300B4EC02 /* AddPlaceViewController.h */,
@@ -205,7 +205,7 @@
 				FAE913E425896D2200570CE7 /* ListOfPlacesViewController.m in Sources */,
 				FA1BB48725B3423D00ACBA8A /* PageViewController.m in Sources */,
 				FA42A14C25859E8D00F5747F /* WeatherModel.m in Sources */,
-				FAF6E848258418C400F16DBB /* PlaceViewController.m in Sources */,
+				FAF6E848258418C400F16DBB /* NRPlaceViewController.m in Sources */,
 				FAE913DE2589657800570CE7 /* WeatherCell.m in Sources */,
 				FAE913E125896A5100570CE7 /* AddPlaceCell.m in Sources */,
 				FAF6E853258418C600F16DBB /* main.m in Sources */,

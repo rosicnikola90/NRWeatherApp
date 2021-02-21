@@ -10,6 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//@class WeatherCell;
+
+//@protocol LongPressDelegate <NSObject>
+//
+//-(void) longPressDetectedForCell: (WeatherCell*) cell ;
+
+//@end
+
 
 @interface WeatherCell : UITableViewCell
 
@@ -18,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
+//@property(weak, nonatomic) id <LongPressDelegate> longPressDelegate;
 
 @end
 

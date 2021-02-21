@@ -17,11 +17,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+//    UILongPressGestureRecognizer *longPressRec = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected)];
+//    [self addGestureRecognizer:longPressRec];
 }
 
-- (IBAction)longPress:(id)sender {
-   
-}
 
+//- (void)longPressDetected {
+//    if (self.longPressDelegate != nil) {
+//        [self.longPressDelegate longPressDetectedForCell:self];
+//    }
+//}
 
 @end

@@ -16,6 +16,7 @@
 @implementation AddPlaceViewController
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     [self.placeTextField becomeFirstResponder];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissmissKeyboard)];

@@ -19,12 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol NRListOfPlacesDelegate <NSObject>
 
+@optional
 -(void) weatherModelToSetOnPlaceVC : (NSInteger) index ;
 
 @end
 
 
-@interface ListOfPlacesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NRAddPlaceCellDelegate, NRAddPlaceViewContollerDelegate>
+@interface ListOfPlacesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NRAddPlaceCellDelegate, NRAddPlaceViewContollerDelegate, NRWeatherModelDelegateForList>
 
 @property (weak, nonatomic) id <NRListOfPlacesDelegate> delegate;
 

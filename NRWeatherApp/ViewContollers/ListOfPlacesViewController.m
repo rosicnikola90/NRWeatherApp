@@ -7,12 +7,12 @@
 //
 
 #import "ListOfPlacesViewController.h"
-#import "PlaceViewController.h"
+#import "NRPlaceViewController.h"
 
 @interface ListOfPlacesViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) WeatherCell *cellForEdit ;
 
 @end
 
@@ -23,8 +23,12 @@
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.navigationController.navigationBar setHidden:true];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:true];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -50,6 +54,7 @@
     }
     else {
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weatherCell" forIndexPath:indexPath];
+        //[cell setLongPressDelegate:self];
         WeatherModel *model = NRWeatherModelListManager.listOfWeatherModels[indexPath.row];
         [cell.weatherStatusImage setImage:[UIImage imageNamed:[model getWeatherImageName]]];
         if (model.isModelUpdated == true ) {
@@ -58,6 +63,8 @@
         [cell.temperatureLabel setText:[model getCurrentTemperature]];
         }
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        [cell.contentView.layer setBorderColor:UIColor.blackColor.CGColor];
+        [cell.contentView.layer setBorderWidth:1.0];
     return cell;
         }
     }
@@ -77,6 +84,10 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 110;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == NRWeatherModelListManager.listOfWeatherModels.count){
     }
@@ -86,26 +97,54 @@
     }
 }
 
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSIndexPath *indexPathPressedCell  = [self.tableView indexPathForCell:self.cellForEdit];
+//    if (indexPathPressedCell.row == indexPath.row){
+//        return true;
+//    }
+//    else {
+//        return false;
+//    }
+// }
+
+
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+//
+//}
+
 
 -(void) setNewLocation : (NSString*) name {
     WeatherModel *newWeatherModel = [[WeatherModel alloc]init];
     newWeatherModel.delegateList = self;
+
+    
     [newWeatherModel getRequestWithNameOfLocation:name];
     [NRWeatherModelListManager.listOfWeatherModels addObject:newWeatherModel];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:NRWeatherModelListManager.listOfWeatherModels.count inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationFade];
     
     [self.tableView reloadData];
     
 }
 
 -(void) weatherDataHasBeenUpdatedForListWeatherModel {
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 -(void) performAddPlaceAction {
     [self performSegueWithIdentifier:@"goToAddPlaceVC" sender:self];
 }
+
+//-(void) longPressDetectedForCell: (WeatherCell*) cell {
+//    NSLog(@"LONG PRESS Deceted");
+//    if (NRWeatherModelListManager.listOfWeatherModels.count >= 2) {
+//    self.cellForEdit = cell;
+//    [self.tableView setEditing:true];
+//    }
+//}
 
 - (void)dealloc
 {

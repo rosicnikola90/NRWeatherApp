@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlaceViewController.h"
+#import "NRPlaceViewController.h"
 #import "WeatherModel.h"
 #import "ListOfPlacesViewController.h"
 
